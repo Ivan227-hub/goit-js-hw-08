@@ -64,22 +64,22 @@ const images = [
   },
 ];
 
-// Створення розмітки галереї
+// Створення розмітки
 const galleryContainer = document.querySelector(".gallery");
-
 const galleryMarkup = images
   .map(
     ({ preview, original, description }) => `
-<li class="gallery-item">
-  <a class="gallery-link" href="${original}">
-    <img
-      class="gallery-image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</li>`
+  <li class="gallery-item">
+    <a class="gallery-link" href="${original}">
+      <img
+        class="gallery-image"
+        src="${preview}"
+        data-source="${original}"
+        alt="${description}"
+      />
+    </a>
+  </li>
+`
   )
   .join("");
 
@@ -95,10 +95,10 @@ function onGalleryClick(event) {
     return;
   }
 
-  const largeImageURL = event.target.dataset.source;
+  const largeImage = event.target.dataset.source;
 
   const instance = basicLightbox.create(`
-    <img src="${largeImageURL}" width="800" height="600">
+    <img src="${largeImage}" width="1440" height="696">
   `);
 
   instance.show();
